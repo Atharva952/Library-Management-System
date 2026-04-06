@@ -13,7 +13,7 @@ const Navbar = ({ user, onLogout }) => {
     <nav className="glass-nav">
       <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
         <Link to={user ? "/dashboard" : "/login"} className="brand-title">
-          ShelfSpace
+          LibraryDex
         </Link>
 
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
