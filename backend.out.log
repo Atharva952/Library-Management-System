@@ -1,0 +1,21 @@
+
+> project-1@1.0.0 dev
+> nodemon --exec babel-node src/index.js
+
+[33m[nodemon] 3.1.11[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `babel-node src/index.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `babel-node src/index.js`[39m
+[dotenv@17.3.1] injecting env (10) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+server is running on port 8000
+database is connected to the server (atlast)
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting child process[39m
+[32m[nodemon] starting `babel-node src/index.js`[39m
+[dotenv@17.3.1] injecting env (10) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+server is running on port 8000
+database is connected to the server (atlast)
