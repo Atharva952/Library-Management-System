@@ -14,6 +14,7 @@ import AuthorsList from "./components/AuthorsList";
 import AddBook from "./components/AddBook";
 import AddAuthor from "./pages/AddAuthor";
 import Dashboard from "./pages/Dashboard";
+import BookDetails from "./pages/BookDetails";
 import "./index.css";
 
 const ProtectedRoute = ({ children, isAdmin = false }) => {
@@ -71,6 +72,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <BooksList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/books/:id"
+            element={
+              <ProtectedRoute>
+                <BookDetails />
               </ProtectedRoute>
             }
           />

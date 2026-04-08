@@ -125,7 +125,10 @@ export const getAllBooks = async (req, res) => {
 export const getSingleBook = async (req, res) => {
   try {
     const { id } = req.params;
-    const book = await BookModel.findOne({ _id: id, isDeleted: false });
+    const book = await BookModel.findOne({ _id: id, isDeleted: false }).populate(
+      "authorID",
+      "firstname lastname bio birthDate avatar",
+    );
 
     if (!book) {
       return res.status(401).json({

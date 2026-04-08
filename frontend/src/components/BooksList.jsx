@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { bookApi } from "../api/client";
 import { useAuth } from "../context/AuthContext";
 
 const BooksList = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -97,47 +99,61 @@ const BooksList = () => {
               key={book._id}
               className="catalog-card stagger-item overflow-hidden p-0"
             >
-              <div className="h-44 w-full bg-slate-100">
-                {book.coverImage?.cloudinary?.url ? (
-                  <img
-                    src={book.coverImage.cloudinary.url}
-                    alt={book.title}
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center text-sm text-slate-500">
-                    No cover image
-                  </div>
-                )}
-              </div>
-
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-bold text-slate-800">
-                    {book.title}
-                  </h3>
-                  {isAdmin && (
-                    <button
-                      type="button"
-                      onClick={() => setBookToDelete(book)}
-                      disabled={deletingId === book._id}
-                      className="rounded-lg border border-rose-200 px-3 py-1 text-xs font-semibold text-rose-700 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {deletingId === book._id ? "Deleting..." : "Delete"}
-                    </button>
+              <button
+                type="button"
+                onClick={() => navigate(`/books/${book._id}`)}
+                className="block w-full text-left"
+              >
+                <div className="h-44 w-full bg-slate-100">
+                  {book.coverImage?.cloudinary?.url ? (
+                    <img
+                      src={book.coverImage.cloudinary.url}
+                      alt={book.title}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-sm text-slate-500">
+                      No cover image
+                    </div>
                   )}
                 </div>
-                <p className="mt-2 text-sm text-slate-600">
-                  {book.authorID?.firstname || "Unknown"}{" "}
-                  {book.authorID?.lastname || "Author"}
-                </p>
-                <p className="mt-2 text-xs text-slate-500">
-                  Published:{" "}
-                  {book.publishDate
-                    ? new Date(book.publishDate).toLocaleDateString()
-                    : "N/A"}
-                </p>
-              </div>
+
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-lg font-bold text-slate-800 transition hover:text-emerald-700">
+                      {book.title}
+                    </h3>
+                    {isAdmin && (
+                      <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-emerald-700">
+                        Open
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {book.authorID?.firstname || "Unknown"}{" "}
+                    {book.authorID?.lastname || "Author"}
+                  </p>
+                  <p className="mt-2 text-xs text-slate-500">
+                    Published:{" "}
+                    {book.publishDate
+                      ? new Date(book.publishDate).toLocaleDateString()
+                      : "N/A"}
+                  </p>
+                </div>
+              </button>
+
+              {isAdmin && (
+                <div className="border-t border-slate-200 px-5 pb-5 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setBookToDelete(book)}
+                    disabled={deletingId === book._id}
+                    className="rounded-lg border border-rose-200 px-3 py-1 text-xs font-semibold text-rose-700 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {deletingId === book._id ? "Deleting..." : "Delete"}
+                  </button>
+                </div>
+              )}
             </article>
           ))}
         </div>
