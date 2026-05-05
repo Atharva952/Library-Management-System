@@ -56,9 +56,9 @@ const AuthorsList = () => {
     <section className="content-wrap">
       <div className="panel p-6 sm:p-8">
         <h1 className="page-title">Authors</h1>
-        <p className="page-subtitle">
+        {/* <p className="page-subtitle">
           Explore writer profiles and the minds behind every title.
-        </p>
+        </p> */}
 
         <div className="mt-5">
           <input
@@ -132,12 +132,12 @@ const AuthorsList = () => {
               </span>
               ?
             </p>
-            <div className="mt-6 flex justify-end gap-3">
+            <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={() => setAuthorToDelete(null)}
                 disabled={deletingId === authorToDelete._id}
-                className="btn-outline"
+                className="btn-outline w-full sm:w-auto"
               >
                 Cancel
               </button>
@@ -145,7 +145,7 @@ const AuthorsList = () => {
                 type="button"
                 onClick={handleDelete}
                 disabled={deletingId === authorToDelete._id}
-                className="rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 {deletingId === authorToDelete._id ? "Deleting..." : "Delete"}
               </button>

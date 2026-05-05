@@ -59,10 +59,13 @@ const Register = () => {
           <span className="pill">One last step</span>
           <h1 className="mt-4 page-title">Verify Your Email</h1>
           <p className="page-subtitle">
-            We sent a 6-digit OTP to <span className="font-semibold">{formData.email}</span>
+            We sent a 6-digit OTP to{" "}
+            <span className="font-semibold">{formData.email}</span>
           </p>
 
-          {errors.submit && <div className="status-error mt-5">{errors.submit}</div>}
+          {errors.submit && (
+            <div className="status-error mt-5">{errors.submit}</div>
+          )}
 
           <div className="mt-6">
             <label className="field-label">Enter OTP</label>
@@ -97,9 +100,11 @@ const Register = () => {
       <div className="auth-card surface-noise">
         <span className="pill">Get Started</span>
         <h1 className="mt-4 page-title">Create Account</h1>
-        <p className="page-subtitle">Join the library and start exploring titles instantly.</p>
+        {/* <p className="page-subtitle">Join the library and start exploring titles instantly.</p> */}
 
-        {errors.submit && <div className="status-error mt-5">{errors.submit}</div>}
+        {errors.submit && (
+          <div className="status-error mt-5">{errors.submit}</div>
+        )}
 
         <form onSubmit={handleRegister} className="mt-6 space-y-4">
           <div>
@@ -141,14 +146,21 @@ const Register = () => {
             />
           </div>
 
-          <button type="submit" disabled={isLoading} className="btn-primary w-full">
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="btn-primary w-full"
+          >
             {isLoading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 
         <p className="mt-5 text-center text-sm text-slate-600">
           Already have an account?{" "}
-          <Link to="/login" className="font-semibold text-emerald-700 hover:text-emerald-800">
+          <Link
+            to="/login"
+            className="font-semibold text-emerald-700 hover:text-emerald-800"
+          >
             Sign in
           </Link>
         </p>

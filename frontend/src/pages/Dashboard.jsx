@@ -28,8 +28,8 @@ const Dashboard = ({ user }) => {
         </h1>
         <p className="page-subtitle max-w-2xl">
           {isAdmin
-            ? "Manage catalog quality, add new books, and keep author records up to date from one place."
-            : "Browse curated titles, discover authors, and keep your reading journey active."}
+            ? "Manage books, add new ones, and update authors in one place."
+            : "Browse books, discover authors, and keep reading."}
         </p>
       </div>
 
@@ -37,10 +37,9 @@ const Dashboard = ({ user }) => {
         <div className="catalog-card stagger-item">
           <h2 className="text-xl font-bold text-slate-800">Browse Books</h2>
           <p className="mt-2 text-sm text-slate-600">
-            Search titles, preview cover images, and explore your growing
-            catalog.
+            Browse titles, preview covers, and explore your collection.
           </p>
-          <Link to="/books" className="btn-primary mt-5 inline-flex">
+          <Link to="/books" className="btn-primary mt-5 inline-flex w-full sm:w-auto">
             Open Books
           </Link>
         </div>
@@ -48,10 +47,9 @@ const Dashboard = ({ user }) => {
         <div className="catalog-card stagger-item">
           <h2 className="text-xl font-bold text-slate-800">Explore Authors</h2>
           <p className="mt-2 text-sm text-slate-600">
-            Discover biographies and navigate authors behind your favorite
-            books.
+            Find authors behind your favorite books.
           </p>
-          <Link to="/authors" className="btn-primary mt-5 inline-flex">
+          <Link to="/authors" className="btn-primary mt-5 inline-flex w-full sm:w-auto">
             Open Authors
           </Link>
         </div>
@@ -61,10 +59,9 @@ const Dashboard = ({ user }) => {
             <div className="catalog-card stagger-item">
               <h2 className="text-xl font-bold text-slate-800">Add New Book</h2>
               <p className="mt-2 text-sm text-slate-600">
-                Publish new titles quickly with cover image and release date
-                details.
+                Publish books with cover and release date
               </p>
-              <Link to="/add-book" className="btn-outline mt-5 inline-flex">
+              <Link to="/add-book" className="btn-outline mt-5 inline-flex w-full sm:w-auto">
                 Add Book
               </Link>
             </div>
@@ -74,9 +71,9 @@ const Dashboard = ({ user }) => {
                 Add New Author
               </h2>
               <p className="mt-2 text-sm text-slate-600">
-                Create and maintain author profiles with clear metadata.
+                Create and manage author profiles with clear details.
               </p>
-              <Link to="/add-author" className="btn-outline mt-5 inline-flex">
+              <Link to="/add-author" className="btn-outline mt-5 inline-flex w-full sm:w-auto">
                 Add Author
               </Link>
             </div>

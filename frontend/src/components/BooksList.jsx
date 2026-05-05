@@ -63,9 +63,9 @@ const BooksList = () => {
     <section className="content-wrap">
       <div className="panel p-6 sm:p-8">
         <h1 className="page-title">Book Collection</h1>
-        <p className="page-subtitle">
+        {/* <p className="page-subtitle">
           Search by title or author name and discover your next read.
-        </p>
+        </p> */}
 
         <div className="mt-5">
           <input
@@ -167,12 +167,12 @@ const BooksList = () => {
               Are you sure you want to delete{" "}
               <span className="font-semibold">{bookToDelete.title}</span>?
             </p>
-            <div className="mt-6 flex justify-end gap-3">
+            <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={() => setBookToDelete(null)}
                 disabled={deletingId === bookToDelete._id}
-                className="btn-outline"
+                className="btn-outline w-full sm:w-auto"
               >
                 Cancel
               </button>
@@ -180,7 +180,7 @@ const BooksList = () => {
                 type="button"
                 onClick={handleDelete}
                 disabled={deletingId === bookToDelete._id}
-                className="rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-xl bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 {deletingId === bookToDelete._id ? "Deleting..." : "Delete"}
               </button>
