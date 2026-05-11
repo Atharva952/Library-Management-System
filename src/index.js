@@ -15,10 +15,13 @@ const defaultOrigins = [
   "http://127.0.0.1:5173",
   "http://localhost:5174",
   "http://127.0.0.1:5174",
+  "https://library-management-system-frontend-q3st.onrender.com",
 ];
 
 const allowedOrigins = process.env.CORS_ORIGINS
-  ? process.env.CORS_ORIGINS.split(",").map((origin) => origin.trim())
+  ? process.env.CORS_ORIGINS.split(",")
+      .map((origin) => origin.trim())
+      .filter(Boolean)
   : defaultOrigins;
 
 app.use(
