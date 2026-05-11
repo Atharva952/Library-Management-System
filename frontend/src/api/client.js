@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8000/api/v1";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
 });
-
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
@@ -14,7 +14,6 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
-
 
 export const userApi = {
   register: (data) => api.post("/user", data),
@@ -26,7 +25,6 @@ export const userApi = {
   updateProfile: (data) => api.put("/user/update", data),
   deleteAccount: (data) => api.delete("/user/delete", { data }),
 };
-
 
 export const bookApi = {
   getAll: (params) => api.get("/book", { params }),
@@ -41,7 +39,6 @@ export const bookApi = {
     }),
   delete: (id) => api.delete(`/book/${id}`),
 };
-
 
 export const authorApi = {
   getAll: (params) => api.get("/author", { params }),
