@@ -55,6 +55,16 @@ mongoose
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/book", bookRouter);
 app.use("/api/v1/author", authorRouter);
+app.get("/", (_, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Library Management API is running",
+  });
+});
+
+app.get("/health", (_, res) => {
+  res.status(200).json({ success: true, status: "ok" });
+});
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
